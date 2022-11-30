@@ -20,8 +20,8 @@ steps:
     allowTelemetryCollection: false
 - task: TerraformCLI@0
   inputs:
-    command: 'destroy'
+    command: 'apply'
     environmentServiceName: 'terraform-aks-azurerm-svc-con'
-    allowTelemetryCollection: true
+    allowTelemetryCollection: false
 
 
