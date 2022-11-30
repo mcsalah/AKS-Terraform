@@ -15,5 +15,10 @@ steps:
     backendAzureRmContainerName: 'rgdevcontainer'
     backendAzureRmKey: 'tfstate'
     allowTelemetryCollection: true
+- task: TerraformCLI@0
+  inputs:
+    command: 'plan'
+    environmentServiceName: 'terraform-aks-azurerm-svc-con'
+    allowTelemetryCollection: false
 
 
