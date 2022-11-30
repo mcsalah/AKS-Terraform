@@ -12,6 +12,7 @@ steps:
     backendServiceArm: 'terraform-aks-azurerm-svc-con'
     ensureBackend: true
     backendAzureRmResourceGroupName: 'rgdev'
+    backendAzureRmResourceGroupLocation: 'east us'
     backendAzureRmStorageAccountName: 'rgdev30112022'
     backendAzureRmStorageAccountSku: 'Standard_LRS'
     backendAzureRmContainerName: 'rgdevcontainer'
