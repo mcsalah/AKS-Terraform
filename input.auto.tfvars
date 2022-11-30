@@ -1,6 +1,6 @@
 aks_vnet_name = "aksvnet"
 
-sshkvsecret = "akssshpubkey"
+sshkvsecret = "sshpubkey"
 
 clientidkvsecret = "spn-id"
 
@@ -10,13 +10,13 @@ vnetcidr = ["10.0.0.0/24"]
 
 subnetcidr = ["10.0.0.0/25"]
 
-keyvault_rg = "aksdemo-rg"
+keyvault_rg = "akstfrgtest"
 
-keyvault_name = "aksdemocluster-kv"
+keyvault_name = "kyvatec3"
 
-azure_region = "australiaeast"
+azure_region = "East US"
 
-resource_group = "aksdemocluster-rg"
+resource_group = "test"
 
 cluster_name = "aksdemocluster"
 
