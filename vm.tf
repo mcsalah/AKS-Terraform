@@ -1,5 +1,5 @@
 variable "prefix" {
-  default = "salaeddine"
+  default = "merde"
 }
 
 resource "azurerm_resource_group" "example" {
