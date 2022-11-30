@@ -20,5 +20,9 @@ steps:
     command: 'plan'
     environmentServiceName: 'terraform-aks-azurerm-svc-con'
     allowTelemetryCollection: false
-
+- task: TerraformCLI@0
+  inputs:
+    command: 'apply'
+    environmentServiceName: 'terraform-aks-azurerm-svc-con'
+    allowTelemetryCollection: false
 
