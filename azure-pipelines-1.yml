@@ -1,0 +1,19 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+steps:
+- task: TerraformCLI@0
+  displayName: Terraform Init
+  inputs:
+    command: 'init'
+    backendType: 'azurerm'
+    backendServiceArm: 'terraform-aks-azurerm-svc-con'
+    backendAzureRmResourceGroupName: 'rgdev'
+    backendAzureRmStorageAccountName: 'rgdev30112022'
+    backendAzureRmContainerName: 'rgdevcontainer'
+    backendAzureRmKey: 'tfstate'
+    allowTelemetryCollection: true
+
+
