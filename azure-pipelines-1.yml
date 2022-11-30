@@ -10,11 +10,13 @@ steps:
     command: 'init'
     backendType: 'azurerm'
     backendServiceArm: 'terraform-aks-azurerm-svc-con'
+    ensureBackend: true
     backendAzureRmResourceGroupName: 'rgdev'
     backendAzureRmStorageAccountName: 'rgdev30112022'
+    backendAzureRmStorageAccountSku: 'Standard_LRS'
     backendAzureRmContainerName: 'rgdevcontainer'
     backendAzureRmKey: 'tfstate'
-    allowTelemetryCollection: true
+    allowTelemetryCollection: false
 - task: TerraformCLI@0
   inputs:
     command: 'plan'
