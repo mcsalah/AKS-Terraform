@@ -16,7 +16,7 @@ keyvault_name = "kyvatec3"
 
 azure_region = "East US"
 
-resource_group = "test"
+resource_group = "akstfrgtest"
 
 cluster_name = "aksdemocluster"
 
