@@ -1,0 +1,34 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+steps:
+- task: TerraformCLI@0
+  displayName: Terraform Init
+  inputs:
+    command: 'init'
+    backendType: 'azurerm'
+    backendServiceArm: 'terraform-aks-azurerm-svc-con'
+    ensureBackend: true
+    backendAzureRmResourceGroupName: 'rgdev'
+    backendAzureRmResourceGroupLocation: 'east us'
+    backendAzureRmStorageAccountName: 'rgdev30112022'
+    backendAzureRmStorageAccountSku: 'Standard_LRS'
+    backendAzureRmContainerName: 'rgdevcontainer'
+    backendAzureRmKey: 'tfstate'
+    allowTelemetryCollection: false
+- task: TerraformCLI@0
+  inputs:
+    command: 'validate'
+    allowTelemetryCollection: false
+- task: TerraformCLI@0
+  inputs:
+    command: 'plan'
+    environmentServiceName: 'terraform-aks-azurerm-svc-con'
+    allowTelemetryCollection: true
+- task: TerraformCLI@0
+  inputs:
+    command: 'apply'
+    environmentServiceName: 'terraform-aks-azurerm-svc-con'
+    allowTelemetryCollection: false
