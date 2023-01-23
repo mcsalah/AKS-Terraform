@@ -16,6 +16,9 @@ variable "sshkvsecret" {
 variable "clientidkvsecret" {
   type    = string
 }
+variable "network_plugin" {
+  type    = string   
+}
 
 variable "vnetcidr" {
   type    = list
