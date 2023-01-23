@@ -22,6 +22,7 @@ resource "azurerm_virtual_network" "aks_vnet" {
   resource_group_name = azurerm_resource_group.aks_rg.name
   location            = azurerm_resource_group.aks_rg.location
   address_space       = var.vnetcidr
+  network_policy      = var.network_plugin
 } 
 
 resource "azurerm_subnet" "aks_subnet" {
@@ -42,14 +43,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
   location            = azurerm_resource_group.aks_rg.location
   resource_group_name = azurerm_resource_group.aks_rg.name
   dns_prefix          = var.dns_name
-  network_profile = {
-    network_plugin     = "azure"
-    network_policy     = null
-    dns_service_ip     = null
-    docker_bridge_cidr = null
-    pod_cidr           = null
-    service_cidr       = null
-  }
+ 
 
 
   default_node_pool {
