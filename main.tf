@@ -16,6 +16,10 @@ data "azurerm_key_vault_secret" "spn_secret" {
   name         = var.spnkvsecret
   key_vault_id = data.azurerm_key_vault.azure_vault.id
 }
+network_profile {
+    network_plugin     = var.network_profile.network_plugin
+    network_policy     = var.network_profile.network_policy
+}
 
 resource "azurerm_virtual_network" "aks_vnet" {
   name                = var.aks_vnet_name
@@ -23,15 +27,7 @@ resource "azurerm_virtual_network" "aks_vnet" {
   location            = azurerm_resource_group.aks_rg.location
   address_space       = var.vnetcidr
 }
-variable "network_profile" {
-  description = "(Optional) Sets up network profile for Advanced Networking."
-  default = {
-    # Use azure-cni for advanced networking
-    network_plugin = "azure"
-    # Sets up network policy to be used with Azure CNI. Currently supported values are calico and azure." 
-    network_policy     = "azure"
-     }
-}
+
 
 resource "azurerm_subnet" "aks_subnet" {
   name                 = "aks_subnet"
