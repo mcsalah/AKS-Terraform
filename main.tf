@@ -22,8 +22,21 @@ resource "azurerm_virtual_network" "aks_vnet" {
   resource_group_name = azurerm_resource_group.aks_rg.name
   location            = azurerm_resource_group.aks_rg.location
   address_space       = var.vnetcidr
-  network_plugin      = var.network_plugin
-} 
+}
+variable "network_profile" {
+  description = "(Optional) Sets up network profile for Advanced Networking."
+  default = {
+    # Use azure-cni for advanced networking
+    network_plugin = "azure"
+    # Sets up network policy to be used with Azure CNI. Currently supported values are calico and azure." 
+    network_policy     = "azure"
+    service_cidr       = "10.100.0.0/16"
+    dns_service_ip     = "10.100.0.10"
+    docker_bridge_cidr = "172.17.0.1/16"
+    # Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Use standard for when enable agent_pools availability_zones.
+    load_balancer_sku = "basic"
+  }
+}
 
 resource "azurerm_subnet" "aks_subnet" {
   name                 = "aks_subnet"
