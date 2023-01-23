@@ -42,6 +42,14 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
   location            = azurerm_resource_group.aks_rg.location
   resource_group_name = azurerm_resource_group.aks_rg.name
   dns_prefix          = var.dns_name
+  network_profile = {
+    network_plugin     = "azure"
+    network_policy     = null
+    dns_service_ip     = null
+    docker_bridge_cidr = null
+    pod_cidr           = null
+    service_cidr       = null
+  }
 
 
   default_node_pool {
