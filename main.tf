@@ -22,7 +22,7 @@ resource "azurerm_virtual_network" "aks_vnet" {
   resource_group_name = azurerm_resource_group.aks_rg.name
   location            = azurerm_resource_group.aks_rg.location
   address_space       = var.vnetcidr
-  network_policy      = var.network_plugin
+  network_plugin      = var.network_plugin
 } 
 
 resource "azurerm_subnet" "aks_subnet" {
