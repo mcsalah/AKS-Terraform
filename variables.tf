@@ -16,8 +16,14 @@ variable "sshkvsecret" {
 variable "clientidkvsecret" {
   type    = string
 }
-variable "network_plugin" {
-  type    = string   
+variable "network_profile" {
+  description = "(Optional) Sets up network profile for Advanced Networking."
+  default = {
+    # Use azure-cni for advanced networking
+    network_plugin = "azure"
+    # Sets up network policy to be used with Azure CNI. Currently supported values are calico and azure." 
+    network_policy     = "azure"
+  }
 }
 
 variable "vnetcidr" {
