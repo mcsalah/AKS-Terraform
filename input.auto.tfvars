@@ -6,6 +6,8 @@ clientidkvsecret = "spn-id"
 
 spnkvsecret = "spn-secret"
 
+network_plugin     = "azure"
+
 vnetcidr = ["10.0.0.0/24"]
 
 subnetcidr = ["10.0.0.0/25"]
